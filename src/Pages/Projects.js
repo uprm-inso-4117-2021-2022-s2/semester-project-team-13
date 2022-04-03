@@ -4,6 +4,13 @@ import Container from '@mui/material/Container';
 import Typography from '@mui/material/Typography';
 import Button from '@mui/material/Button';
 
+var research1 = {
+  name: "Eric",
+  briefDescription: "Freelancer",
+  imgPath : "JavaScript",
+  researchPage : "/research1"
+};
+
 function Projects() {
   return (
     <div className="Projects">
@@ -28,6 +35,7 @@ function Projects() {
           <Typography variant="h4" gutterBottom component="div" style={{fontFamily: "Montserrat", fontWeight: "bolder", color: "#212121"}}>
             Featured projects
           </Typography>
+
         </Container>
     </div>
   );
