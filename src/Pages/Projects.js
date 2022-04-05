@@ -7,10 +7,12 @@ import ResearchCard from "../Components/ResearchCard";
 import Grid from '@mui/material/Grid';
 import logoUprm from '../Images/logoUprm.png'
 
+//https://resources.workable.com/job-descriptions/
 const Adversarial = {
   name: "​Adversarial Learning Networks",
   briefDescription: "How can we downgrade the performance of the most popular and effective face recognition models and algorithms?",
   imgPath: logoUprm,
+  studyArea:"Computer Science",
   description: 
   `
   We propose to develop an adversarial learning framework targeted to face recognition models. 
@@ -19,13 +21,23 @@ const Adversarial = {
   adversarial attacks targeted to computer vision models, which we can use as inspiration for 
   creating attacks for FR tasks. This adversarial attacks are useful to identify the vulnerabilities 
   of the models before they are deployed.
+  `,
+  pMajor: "INSO, CIIC, ICOM",
+  yearStudy: "2nd or more",
+  classes: "Introduction to software, Programming Languages, Database",
+  jobDescription: 
   `
+  We are looking for a professional Embedded Software Engineer to execute complete embedded software 
+  development lifecycle. The goal is to create scalable and optimized software systems.
+  `,
+  requiredSkills: ["Active listening", "Communication", "Leadership", "Management skills", "Problem-solving"]
 };
 
 const Embedded = {
   name: "Embedded System",
   briefDescription: "We focus on sustaining the power grid’s data, stored in a sensor network, in response to a natural disturbance.",
   imgPath: logoUprm,
+  studyArea:"Computer Science",
   description: 
   `
   Some of the biggest problems power grids have when facing natural disasters are recovery time and
@@ -36,13 +48,23 @@ const Embedded = {
   how it manages its information, then choosing a viable decentralized communication protocol to use 
   in a prototype that will be incorporated with a decision-making algorithm. Future work is listed 
   based on the current progress of the project. 
+  `,
+  pMajor: "INSO, CIIC, ICOM",
+  yearStudy: "2nd or more",
+  classes: "Introduction to software, Programming Languages, Database",
+  jobDescription: 
   `
+  We are looking for a professional Embedded Software Engineer to execute complete embedded software 
+  development lifecycle. The goal is to create scalable and optimized software systems.
+  `,
+  requiredSkills: ["Active listening", "Communication", "Leadership", "Management skills", "Problem-solving"]
 };
 
 const PandaHat = {
   name: "​Cybersecurity Training & Network Anomaly Detection",
   briefDescription: "Can vulnerabilities be discovered and protect against before they are made public with Machine learning and dynamic analysis?",
   imgPath: logoUprm,
+  studyArea:"Computer Science",
   description: 
   `
   Over the years, network vulnerabilities have been increasing exponentially. Moreover, with the 
@@ -52,13 +74,23 @@ const PandaHat = {
   learning to automate the detection of anomalies in computer networks. Students will acquire the 
   basic knowledge of Cybersecurity concepts and the technical skills needed to fulfill all the 
   security world's desired tasks.
+  `,
+  pMajor: "INSO, CIIC, ICOM",
+  yearStudy: "2nd or more",
+  classes: "Introduction to software, Programming Languages, Database",
+  jobDescription: 
   `
+  We are looking for a professional Embedded Software Engineer to execute complete embedded software 
+  development lifecycle. The goal is to create scalable and optimized software systems.
+  `,
+  requiredSkills: ["Active listening", "Communication", "Leadership", "Management skills", "Problem-solving"]
 };
 
 const NLP = {
   name: "​Hybrid-Architecture Symbolic Parser and Neural Lexicon",
   briefDescription: "How can a computer identify all lexical and structural ambiguities within a given sentence?",
   imgPath: logoUprm,
+  studyArea:"Computer Science",
   description: 
   `
   While the syntactic structures of Language are hierarchical, their externalizations are linear 
@@ -66,7 +98,16 @@ const NLP = {
   a syntactic parser capable of recognizing all potential syntactic and lexical ambiguities within 
   a given sentence. This parser will be useful in industry, education, and as a basis for further 
   development of technologies in human language comprehension.
+  `,
+  pMajor: "INSO, CIIC, ICOM",
+  yearStudy: "2nd or more",
+  classes: "Introduction to software, Programming Languages, Database",
+  jobDescription: 
   `
+  We are looking for a professional Embedded Software Engineer to execute complete embedded software 
+  development lifecycle. The goal is to create scalable and optimized software systems.
+  `,
+  requiredSkills: ["Active listening", "Communication", "Leadership", "Management skills", "Problem-solving"]
 };
 
 const research = [Adversarial, Embedded, PandaHat, NLP, Adversarial, Embedded]
@@ -96,7 +137,7 @@ function Projects() {
             Featured projects
           </Typography>
 
-          <Grid container spacing={2} style={{marginBottom: "50px", marginTop: "25px", textAlign: "center"}}>
+          <Grid container alignItems="stretch" spacing={2} style={{marginBottom: "50px", marginTop: "25px", textAlign: "center"}}>
 
             {
             research.map(res => 
@@ -107,11 +148,17 @@ function Projects() {
                 briefDescription={res.briefDescription} 
                 researchPage={res.researchPage} 
                 description={res.description} 
+                studyArea={res.studyArea}
+                pMajor={res.pMajor}
+                yearStudy={res.yearStudy}
+                classes={res.classes}
+                jobDescription={res.jobDescription}
+                requiredSkills={res.requiredSkills}
                 />
               </Grid>  
             )
             }
-        </Grid>
+          </Grid>
 
         </Container>
     </div>
