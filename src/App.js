@@ -12,7 +12,8 @@ import Post from './Pages/Post'
 import RNECTNavbar from './Components/RNECTNavbar';
 
 const user = {
-  isLogged: true
+  isLogged: false,
+  type: "P"
 }
 
 function App() {
@@ -20,9 +21,9 @@ function App() {
     <BrowserRouter>
       <RNECTNavbar/>
       <Routes>
-          <Route exact path="/" element={<Home isLogged={user.isLogged}/>} />
-          <Route path="/Projects" element={<Projects isLogged={user.isLogged}/>}/>
-          <Route path="/Post" element={<Post isLogged={user.isLogged}/>}/>
+          <Route exact path="/" element={<Home isLogged={user.isLogged} userType={user.type}/>} />
+          <Route path="/Projects" element={<Projects isLogged={user.isLogged} userType={user.type}/>}/>
+          <Route path="/Post" element={<Post isLogged={user.isLogged} userType={user.type}/>}/>
       </Routes>
     </BrowserRouter>
   );
