@@ -21,6 +21,8 @@ const style = {
 
 export default function ResearchInfo(props) {
 
+    var tempKeyNum = 0
+
     return (
         <div>
         
@@ -68,15 +70,21 @@ export default function ResearchInfo(props) {
                     Required skills
                 </Typography>
                 <Divider/>
-                <Typography id="modal-modal-description" variant="body2" sx={{ mt: 2 }} style={{fontFamily: "Montserrat"}}>
+               
                     <ul>
-                        {props.requiredSkills.map(skill =>
-                            <li>
-                                {skill}
-                            </li>
+                        {props.requiredSkills.map(skill =>{
+                            tempKeyNum = tempKeyNum + 1
+                                return(
+                                    <li key={tempKeyNum + props.id}>
+                                        <Typography id="modal-modal-description" variant="body2" sx={{ mt: 2 }} style={{fontFamily: "Montserrat"}}>
+                                            {skill}
+                                        </Typography>
+                                    </li>
+                                )
+                            }
                         )}
                     </ul>
-                </Typography>
+          
                 <br/>
                 
                 <div style={{textAlign: "center"}}>

@@ -54,6 +54,7 @@ export default function ResearchCard(props) {
                     open={open} 
                     handleClose={handleClose} 
                     name={props.name} 
+                    id={props.id}
                     description={props.description} 
                     studyArea={props.studyArea} 
                     pMajor={props.pMajor}

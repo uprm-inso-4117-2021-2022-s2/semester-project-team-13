@@ -4,12 +4,16 @@ import Container from '@mui/material/Container';
 import Typography from '@mui/material/Typography';
 import Button from '@mui/material/Button';
 import ResearchCard from "../Components/ResearchCard";
+import SearchBar from "../Components/SearchBar"
 import Grid from '@mui/material/Grid';
 import logoUprm from '../Images/logoUprm.png'
+import SearchIcon from '@mui/icons-material/Search';
+
 
 //https://resources.workable.com/job-descriptions/
 const Adversarial = {
   name: "​Adversarial Learning Networks",
+  id: "Adversarial",
   briefDescription: "How can we downgrade the performance of the most popular and effective face recognition models and algorithms?",
   imgPath: logoUprm,
   studyArea:"Computer Science",
@@ -35,6 +39,7 @@ const Adversarial = {
 
 const Embedded = {
   name: "Embedded System",
+  id: "Embedded",
   briefDescription: "We focus on sustaining the power grid’s data, stored in a sensor network, in response to a natural disturbance.",
   imgPath: logoUprm,
   studyArea:"Computer Science",
@@ -62,9 +67,10 @@ const Embedded = {
 
 const PandaHat = {
   name: "​Cybersecurity Training & Network Anomaly Detection",
+  id: "PandaHat",
   briefDescription: "Can vulnerabilities be discovered and protect against before they are made public with Machine learning and dynamic analysis?",
   imgPath: logoUprm,
-  studyArea:"Computer Science",
+  studyArea:"​Cybersecurity",
   description: 
   `
   Over the years, network vulnerabilities have been increasing exponentially. Moreover, with the 
@@ -88,6 +94,7 @@ const PandaHat = {
 
 const NLP = {
   name: "​Hybrid-Architecture Symbolic Parser and Neural Lexicon",
+  id: "NLP",
   briefDescription: "How can a computer identify all lexical and structural ambiguities within a given sentence?",
   imgPath: logoUprm,
   studyArea:"Computer Science",
@@ -110,9 +117,39 @@ const NLP = {
   requiredSkills: ["Active listening", "Communication", "Leadership", "Management skills", "Problem-solving"]
 };
 
-const research = [Adversarial, Embedded, PandaHat, NLP, Adversarial, Embedded]
+const Majors = [
+
+  { label: 'Chemical Engineering', code: "INQU" },
+  { label: 'Civil Engineering', code: "INCI" },
+  { label: 'Computer Engineering', code: "ICOM" },
+  { label: 'Computer Sciences and Engineering', code: "CIIC" },
+  { label: 'Electrical Engineering', code: "INEL" },
+  { label: 'Industrial Engineering', code: "ININ" },
+  { label: 'Mechanical Engineering', code: "INME" },
+  { label: 'Software Engineering', code: "INSO" }
+];
+
+const Years = [
+  { label: '1st', number: 1 },
+  { label: '2nd', number: 2 },
+  { label: '3rd', number: 3 },
+  { label: '4th', number: 4 },
+  { label: '5th or more', number: 5 }
+];
+
+const Areas = [
+  { label: 'Machine Learning', number: 1 },
+  { label: 'Data Analysis', number: 2 },
+  { label: 'Aerospace', number: 3 },
+  { label: 'Cybersecurity', number: 4 },
+  { label: 'No preference', number: 5 }
+];
+
+const research = [Adversarial, Embedded, PandaHat, NLP]
 
 function Projects() {
+  var tempKeyNum = 0
+
   return (
     <div className="Projects">
         <Container maxWidth="lg" style={{padding: "10vh", textAlign: "center"}}>
@@ -130,6 +167,22 @@ function Projects() {
               </Typography>
               <Button variant="contained" style={{backgroundColor:"#FE5B00", marginTop:"15px"}}>Log in</Button>
             </Box>
+
+            <Grid container spacing={1} direction="row" alignItems="center" margin={4} style={{justifyContent: "center"}}>
+              <Grid item xs={3} style={{textAlign:"left", padding: 0}}>
+                <SearchBar options={Majors} label="Major"/>
+              </Grid>
+              <Grid item xs={3} style={{textAlign:"left", padding: 0}}>
+                <SearchBar options={Years} label="Year of Study"/>
+              </Grid>
+              <Grid item xs={3} style={{textAlign:"left", padding: 0}}>
+                <SearchBar options={Areas} label="Study Area" onChange={(event, value) => console.log(value)}/>
+              </Grid>
+              <Grid item xs={3} style={{padding: 0}}>
+                <Button variant="contained" startIcon={<SearchIcon />} style={{backgroundColor:"#FE5B00"}}>Search</Button>
+              </Grid>
+            </Grid>
+
         </Container>
 
         <Container maxWidth="lg"> 
@@ -140,22 +193,27 @@ function Projects() {
           <Grid container alignItems="stretch" spacing={2} style={{marginBottom: "50px", marginTop: "25px", textAlign: "center"}}>
 
             {
-            research.map(res => 
-              <Grid item xs={4}>
-                <ResearchCard 
-                imgPath={res.imgPath} 
-                name={res.name} 
-                briefDescription={res.briefDescription} 
-                researchPage={res.researchPage} 
-                description={res.description} 
-                studyArea={res.studyArea}
-                pMajor={res.pMajor}
-                yearStudy={res.yearStudy}
-                classes={res.classes}
-                jobDescription={res.jobDescription}
-                requiredSkills={res.requiredSkills}
-                />
-              </Grid>  
+            research.map(res =>{
+              tempKeyNum = tempKeyNum + 1
+              return ( 
+                <Grid item key={tempKeyNum + res.id} xs={4}>
+                    <ResearchCard 
+                    imgPath={res.imgPath} 
+                    name={res.name} 
+                    id={res.id}
+                    briefDescription={res.briefDescription} 
+                    researchPage={res.researchPage} 
+                    description={res.description} 
+                    studyArea={res.studyArea}
+                    pMajor={res.pMajor}
+                    yearStudy={res.yearStudy}
+                    classes={res.classes}
+                    jobDescription={res.jobDescription}
+                    requiredSkills={res.requiredSkills}
+                    />
+                  </Grid>  
+                )
+            }
             )
             }
           </Grid>
