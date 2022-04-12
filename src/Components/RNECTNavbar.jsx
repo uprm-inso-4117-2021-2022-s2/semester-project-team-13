@@ -79,6 +79,9 @@ const RNECTNavbar = () => {
               <MenuItem key="Projects" to="/Projects" onClick={handleCloseNavMenu}>
                 <Typography textAlign="center">Projects</Typography>
               </MenuItem>
+              <MenuItem key="Post" to="/Post" onClick={handleCloseNavMenu}>
+                <Typography textAlign="center">Post</Typography>
+              </MenuItem>
 
             </Menu>
           </Box>
@@ -99,6 +102,15 @@ const RNECTNavbar = () => {
                 sx={{ my: 2, color: 'white', display: 'block' }}
               >
                 Projects
+              </Button>
+
+              <Button
+                key="Post"
+                onClick={handleCloseNavMenu}
+                href="/Post"
+                sx={{ my: 2, color: 'white', display: 'block' }}
+              >
+                Post
               </Button>
     
           </Box>

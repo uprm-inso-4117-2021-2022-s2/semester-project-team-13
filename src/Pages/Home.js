@@ -1,6 +1,6 @@
 import React from "react";
 
-function Projects() {
+function Projects(props) {
   return (
     <div className="Home">
         Hello Home

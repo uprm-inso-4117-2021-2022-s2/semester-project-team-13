@@ -147,7 +147,7 @@ const Areas = [
 
 const research = [Adversarial, Embedded, PandaHat, NLP]
 
-function Projects() {
+function Projects(props) {
   var tempKeyNum = 0
 
   return (
@@ -165,23 +165,32 @@ function Projects() {
               <br/>
               students have with our platform.
               </Typography>
-              <Button variant="contained" style={{backgroundColor:"#FE5B00", marginTop:"15px"}}>Log in</Button>
+              {props.isLogged ? 
+                  <div>
+                    <Grid container spacing={1} direction="row" alignItems="center" margin={4} style={{justifyContent: "center"}}>
+                    <Grid item xs={3} style={{textAlign:"left", padding: 0}}>
+                      <SearchBar options={Majors} label="Major"/>
+                    </Grid>
+                    <Grid item xs={3} style={{textAlign:"left", padding: 0}}>
+                      <SearchBar options={Years} label="Year of Study"/>
+                    </Grid>
+                    <Grid item xs={3} style={{textAlign:"left", padding: 0}}>
+                      <SearchBar options={Areas} label="Study Area" onChange={(event, value) => console.log(value)}/>
+                    </Grid>
+                    <Grid item xs={3} style={{padding: 0}}>
+                      <Button variant="contained" startIcon={<SearchIcon />} style={{backgroundColor:"#FE5B00"}}>Search</Button>
+                    </Grid>
+                  </Grid>
+                </div>
+              :
+                <div>
+                  <Button variant="contained" style={{backgroundColor:"#FE5B00", marginTop:"15px"}}>Log in</Button>
+                </div>
+              }
             </Box>
 
-            <Grid container spacing={1} direction="row" alignItems="center" margin={4} style={{justifyContent: "center"}}>
-              <Grid item xs={3} style={{textAlign:"left", padding: 0}}>
-                <SearchBar options={Majors} label="Major"/>
-              </Grid>
-              <Grid item xs={3} style={{textAlign:"left", padding: 0}}>
-                <SearchBar options={Years} label="Year of Study"/>
-              </Grid>
-              <Grid item xs={3} style={{textAlign:"left", padding: 0}}>
-                <SearchBar options={Areas} label="Study Area" onChange={(event, value) => console.log(value)}/>
-              </Grid>
-              <Grid item xs={3} style={{padding: 0}}>
-                <Button variant="contained" startIcon={<SearchIcon />} style={{backgroundColor:"#FE5B00"}}>Search</Button>
-              </Grid>
-            </Grid>
+
+
 
         </Container>
 
