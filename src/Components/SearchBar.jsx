@@ -8,8 +8,7 @@ export default function SearchBar(props) {
       disablePortal
       id="combo-box-demo"
       options={props.options}
-      sx={{ width: 250 }}
-      renderInput={(params) => <TextField {...params} label={props.label}/>}
+      renderInput={(params) => <TextField required {...params} label={props.label}/>}
       onChange={props.onChange}
     />
   );
