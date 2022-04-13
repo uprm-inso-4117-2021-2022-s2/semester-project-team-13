@@ -9,11 +9,13 @@ import {
 import Home from './Pages/Home.js'
 import Projects from './Pages/Projects'
 import Post from './Pages/Post'
+import SignUp from './Pages/SignUp'
+import LogIn from './Pages/LogIn'
 import RNECTNavbar from './Components/RNECTNavbar';
 
 const user = {
   name: "Pepito Pérez",
-  isLogged: true,
+  isLogged: false,
   type: "S"
 }
 
@@ -25,6 +27,8 @@ function App() {
           <Route exact path="/" element={<Home isLogged={user.isLogged} userType={user.type}/>} />
           <Route path="/Projects" element={<Projects isLogged={user.isLogged} userType={user.type}/>}/>
           <Route path="/Post" element={<Post isLogged={user.isLogged} userType={user.type}/>}/>
+          <Route path="/SignUp" element={<SignUp/>}/>
+          <Route path="/LogIn" element={<LogIn/>}/>
       </Routes>
     </BrowserRouter>
   );

@@ -110,7 +110,7 @@ function Post(props) {
     };
 
     return (    
-        <div className="Projects">
+        <div className="Post">
             {props.userType === "P" ?
                 <div>
                     <Container maxWidth="lg" style={{padding: "10vh", paddingBottom: 0, textAlign: "center"}}>

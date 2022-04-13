@@ -63,7 +63,7 @@ const RNECTNavbar = (props) => {
           </Stack>
           :
           <Stack sx={{marginLeft:"auto"}} spacing={2} direction="row">
-            <LogButton variant="contained">Sign Up</LogButton>
+            <LogButton variant="contained" href="/SignUp">Sign Up</LogButton>
             <LogButton variant="contained">Login</LogButton>
           </Stack>
 
