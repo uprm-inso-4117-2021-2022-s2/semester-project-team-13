@@ -201,6 +201,7 @@ function Post(props) {
 
                                 <Grid item xs={11.6} style={{padding: 0, marginBottom: "20px"}}>
                                     <TextField
+                                    required
                                     id="outlined-multiline-flexible"
                                     label="Project Description"
                                     multiline

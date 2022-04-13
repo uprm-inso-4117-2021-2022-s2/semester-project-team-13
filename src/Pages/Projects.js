@@ -8,7 +8,7 @@ import SearchBar from "../Components/SearchBar"
 import Grid from '@mui/material/Grid';
 import logoUprm from '../Images/logoUprm.png'
 import SearchIcon from '@mui/icons-material/Search';
-
+import NotFound from '../Images/notFound404.svg'
 
 //https://resources.workable.com/job-descriptions/
 const Adversarial = {
@@ -152,6 +152,8 @@ function Projects(props) {
 
   return (
     <div className="Projects">
+      {props.userType === "S" ?
+      <div>
         <Container maxWidth="lg" style={{padding: "10vh", textAlign: "center"}}>
             <Box sx={{ height: '40vh' }}>
               <Typography variant="h3" gutterBottom component="div" style={{fontFamily: "Montserrat", fontWeight: "bolder", color: "#252B42", margin:"0"}}>
@@ -187,9 +189,6 @@ function Projects(props) {
               }
             </Box>
 
-
-
-
         </Container>
 
         <Container maxWidth="lg"> 
@@ -224,8 +223,32 @@ function Projects(props) {
             )
             }
           </Grid>
-
         </Container>
+      </div>
+
+      :
+  
+      <div style={{textAlign: "center"}}>
+          <Grid container component="main" sx={{ height: '75vh', justifyContent: "center"}}>
+              <Grid item xs={6}
+              sx={{
+                  backgroundImage: `url(${NotFound})`,
+                  backgroundRepeat: 'no-repeat',
+                  backgroundSize: "100%",
+                  backgroundPosition: 'center'
+              }}
+              />
+          </Grid>
+
+          <a href="https://storyset.com/people" 
+          style={{
+              fontSize: "12px", 
+              fontFamily: "Montserrat", 
+              color: "#737373", 
+              textDecoration:"None"}}>People illustrations by Storyset</a>      
+      </div>
+
+    }
     </div>
   );
 }

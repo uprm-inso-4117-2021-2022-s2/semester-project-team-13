@@ -1,152 +1,78 @@
 import * as React from 'react';
 import AppBar from '@mui/material/AppBar';
-import Box from '@mui/material/Box';
 import Toolbar from '@mui/material/Toolbar';
-import IconButton from '@mui/material/IconButton';
-import Typography from '@mui/material/Typography';
-import Menu from '@mui/material/Menu';
-import MenuIcon from '@mui/icons-material/Menu';
 import Container from '@mui/material/Container';
-import Avatar from '@mui/material/Avatar';
 import Button from '@mui/material/Button';
-import Tooltip from '@mui/material/Tooltip';
-import MenuItem from '@mui/material/MenuItem';
+import { styled } from '@mui/material/styles';
+import Stack from '@mui/material/Stack';
+import logo from '../Images/logo.png'
+import AccountMenu from './AccountMenu'
 
+var pages = ['Home'];
 
-const settings = ['Profile', 'Account', 'Logout'];
+const RNECTNavbar = (props) => {
 
-const RNECTNavbar = () => {
-  const [anchorElNav, setAnchorElNav] = React.useState(null);
-  const [anchorElUser, setAnchorElUser] = React.useState(null);
-
-  const handleOpenNavMenu = (event) => {
-    setAnchorElNav(event.currentTarget);
-  };
-  const handleOpenUserMenu = (event) => {
-    setAnchorElUser(event.currentTarget);
-  };
-
-  const handleCloseNavMenu = () => {
-    setAnchorElNav(null);
-  };
-
-  const handleCloseUserMenu = () => {
-    setAnchorElUser(null);
-  };
+  const LogButton = styled(Button)(({ theme }) => ({
+    color: "#FFFFFF",
+    backgroundColor: "#FE5B00",
+    '&:hover': {
+      backgroundColor: "#FE5B00",
+    },
+  }));
 
   return (
-    <AppBar position="static">
+    <AppBar elevation={0} color='transparent' position="static">
       <Container maxWidth="xl">
         <Toolbar disableGutters>
-          <Typography
-            variant="h6"
-            noWrap
-            component="div"
-            sx={{ mr: 2, display: { xs: 'none', md: 'flex' } }}
-          >
-            LOGO
-          </Typography>
+          
+          <img src={logo} style={{maxWidth: "125px", marginRight: "50px"}} alt="RNECT"/>
 
-          <Box sx={{ flexGrow: 1, display: { xs: 'flex', md: 'none' } }}>
-            <IconButton
-              size="large"
-              aria-label="account of current user"
-              aria-controls="menu-appbar"
-              aria-haspopup="true"
-              onClick={handleOpenNavMenu}
-              color="inherit"
+          {pages.map((page) => (
+            <Button
+              variant="Text"
+              key={page}
+              href={"/" + page}
+              sx={{ my: 2, color: 'black', display: 'block', marginLeft: "10px" }}
             >
-              <MenuIcon />
-            </IconButton>
-            <Menu
-              id="menu-appbar"
-              anchorEl={anchorElNav}
-              anchorOrigin={{
-                vertical: 'bottom',
-                horizontal: 'left',
-              }}
-              keepMounted
-              transformOrigin={{
-                vertical: 'top',
-                horizontal: 'left',
-              }}
-              open={Boolean(anchorElNav)}
-              onClose={handleCloseNavMenu}
-              sx={{
-                display: { xs: 'block', md: 'none' },
-              }}
+              {page}
+            </Button>
+          ))}
+
+          {props.userType === "P" ? 
+            <Button
+              variant="Text"
+              key="Post"
+              href="/Post"
+              sx={{ my: 2, color: 'black', display: 'block', marginLeft: "10px" }}
             >
-              <MenuItem key="Projects" to="/Projects" onClick={handleCloseNavMenu}>
-                <Typography textAlign="center">Projects</Typography>
-              </MenuItem>
-              <MenuItem key="Post" to="/Post" onClick={handleCloseNavMenu}>
-                <Typography textAlign="center">Post</Typography>
-              </MenuItem>
-
-            </Menu>
-          </Box>
-          <Typography
-            variant="h6"
-            noWrap
-            component="div"
-            sx={{ flexGrow: 1, display: { xs: 'flex', md: 'none' } }}
-          >
-            LOGO
-          </Typography>
-          <Box sx={{ flexGrow: 1, display: { xs: 'none', md: 'flex' } }}>
-
-              <Button
-                key="Projects"
-                onClick={handleCloseNavMenu}
-                href="/Projects"
-                sx={{ my: 2, color: 'white', display: 'block' }}
-              >
-                Projects
-              </Button>
-
-              <Button
-                key="Post"
-                onClick={handleCloseNavMenu}
-                href="/Post"
-                sx={{ my: 2, color: 'white', display: 'block' }}
-              >
-                Post
-              </Button>
-    
-          </Box>
-
-          <Box sx={{ flexGrow: 0 }}>
-            <Tooltip title="Open settings">
-              <IconButton onClick={handleOpenUserMenu} sx={{ p: 0 }}>
-                <Avatar alt="Remy Sharp" src="/static/images/avatar/2.jpg" />
-              </IconButton>
-            </Tooltip>
-            <Menu
-              sx={{ mt: '45px' }}
-              id="menu-appbar"
-              anchorEl={anchorElUser}
-              anchorOrigin={{
-                vertical: 'top',
-                horizontal: 'right',
-              }}
-              keepMounted
-              transformOrigin={{
-                vertical: 'top',
-                horizontal: 'right',
-              }}
-              open={Boolean(anchorElUser)}
-              onClose={handleCloseUserMenu}
+              Post
+            </Button>
+          :
+            <Button
+            variant="Text"
+            key="Projects"
+            href="/Projects"
+            sx={{ my: 2, color: 'black', display: 'block', marginLeft: "10px" }}
             >
-              {settings.map((setting) => (
-                <MenuItem key={setting} onClick={handleCloseUserMenu}>
-                  <Typography textAlign="center">{setting}</Typography>
-                </MenuItem>
-              ))}
-            </Menu>
-          </Box>
+              Projects
+            </Button>
+          }
+          {props.isLogged ? 
+           <Stack sx={{marginLeft:"auto"}} spacing={2} direction="row">
+            <AccountMenu name={props.userName}/>
+          </Stack>
+          :
+          <Stack sx={{marginLeft:"auto"}} spacing={2} direction="row">
+            <LogButton variant="contained">Sign Up</LogButton>
+            <LogButton variant="contained">Login</LogButton>
+          </Stack>
+
+          }
+          
         </Toolbar>
       </Container>
     </AppBar>
   );
 };
+
 export default RNECTNavbar;
