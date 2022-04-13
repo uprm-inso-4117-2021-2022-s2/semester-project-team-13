@@ -14,7 +14,7 @@ import RNECTNavbar from './Components/RNECTNavbar';
 const user = {
   name: "Pepito Pérez",
   isLogged: true,
-  type: "P"
+  type: "S"
 }
 
 function App() {

@@ -4,6 +4,7 @@ import Typography from '@mui/material/Typography';
 import Modal from '@mui/material/Modal';
 import Button from '@mui/material/Button';
 import Divider from '@mui/material/Divider';
+import ApplicationForm from './ApplicationForm'
 
 const style = {
   position: 'absolute',
@@ -20,6 +21,9 @@ const style = {
 };
 
 export default function ResearchInfo(props) {
+    const [open, setOpen] = React.useState(false);
+    const handleOpen = () => setOpen(true);
+    const handleClose = () => setOpen(false);
 
     var tempKeyNum = 0
 
@@ -88,9 +92,22 @@ export default function ResearchInfo(props) {
                 <br/>
                 
                 <div style={{textAlign: "center"}}>
-                    <Button variant="contained" size="large" style={{backgroundColor:"#22BCEA"}}>
+                    <Button variant="contained" size="large" onClick={handleOpen} style={{backgroundColor:"#22BCEA"}}>
                         Apply Now
                     </Button>
+                    <ApplicationForm 
+                        open={open} 
+                        handleClose={handleClose} 
+                        name={props.name} 
+                        id={props.id}
+                        description={props.description} 
+                        studyArea={props.studyArea} 
+                        pMajor={props.pMajor}
+                        yearStudy={props.yearStudy}
+                        classes={props.classes}
+                        jobDescription={props.jobDescription}
+                        requiredSkills={props.requiredSkills}
+                    />
                 </div>
 
             </Box>
