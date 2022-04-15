@@ -105,7 +105,7 @@ export default function ResearchInfo(props) {
                         Submit Application
                     </Button>
                     <Snackbar sx={{ height: "100%" }} anchorOrigin={{ vertical: 'top', horizontal: 'center' }} open={open} autoHideDuration={4000} onClose={handleClose}>
-                        <Alert onClose={handleClose} variant="filled" severity="success" sx={{ width: '100%', backgroundColor:"#4BB543", fontSize:"25px", fontFamily: "Montserrat" }}>
+                        <Alert onClose={handleClose} variant="filled" severity="success" sx={{ width: '100%', backgroundColor:"#4BB543", fontFamily: "Montserrat" }}>
                             Your application has been submitted successfully!
                         </Alert>
                     </Snackbar>
