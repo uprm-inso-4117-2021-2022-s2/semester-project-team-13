@@ -13,25 +13,24 @@ import TextField from '@mui/material/TextField';
 import NotFound from '../Images/notFound404.svg'
 
 const Majors = [
-
-  { label: 'Chemical Engineering', code: "INQU" },
-  { label: 'Civil Engineering', code: "INCI" },
-  { label: 'Computer Engineering', code: "ICOM" },
-  { label: 'Computer Sciences and Engineering', code: "CIIC" },
-  { label: 'Electrical Engineering', code: "INEL" },
-  { label: 'Industrial Engineering', code: "ININ" },
-  { label: 'Mechanical Engineering', code: "INME" },
-  { label: 'Software Engineering', code: "INSO" },
-  { label: 'No preference', code: "N/P" }
+  'Chemical Engineering',
+  'Civil Engineering',
+  'Computer Engineering',
+  'Computer Sciences and Engineering',
+  'Electrical Engineering',
+  'Industrial Engineering',
+  'Mechanical Engineering',
+  'Software Engineering',
+  'No preference',
 ];
 
 const Years = [
-  { label: '1st', number: 1 },
-  { label: '2nd', number: 2 },
-  { label: '3rd', number: 3 },
-  { label: '4th', number: 4 },
-  { label: '5th or more', number: 5 },
-  { label: 'No preference', code: "N/P" }
+    '1st',
+    '2nd',
+    '3rd',
+    '4th',
+    '5th or more',
+    'No preference',
 ];
 
 const Areas = [
@@ -43,11 +42,11 @@ const Areas = [
 ];
 
 const Skills = [
-{title: "Active listening"},
-{title: "Communication"},
-{title: "Leadership"},
-{title: "Management skills"},
-{title: "Problem-solving"}
+    {title: "Active listening"},
+    {title: "Communication"},
+    {title: "Leadership"},
+    {title: "Management skills"},
+    {title: "Problem-solving"}
 ]
 
 const Classes = [
@@ -95,25 +94,89 @@ const Classes = [
 
 ]
 
-function Post(props) {
+// Data submitted by the user
+let researchData = {
+    name: null,
+    studyArea: null,
+    major: null,
+    yearStudy: null,
+    skills: null,
+    classes: null,
+    researchDescription: null,
+    jobDescription: null
+  }
 
+function Post(props) {
+    
+    // Research Name Data
     const [valueName, setValueName] = React.useState('');
 
     const handleChangeName = (event) => {
         setValueName(event.target.value);
     };
 
-    const [valueResearch, setValueResearch] = React.useState('');
+    // Research Study Area Data
+    const [valueStudyArea, setValueStudyArea] = React.useState();
 
-    const handleChangeResearch = (event) => {
-        setValueResearch(event.target.value);
+    const handleChangeStudyArea = (event, value) => {
+        setValueStudyArea(value);
     };
 
+    // Research Preferred Major Data
+    const [valuePreferredMajor, setValuePreferredMajor] = React.useState('');
+
+    const handleChangePreferredMajor = (event, value) => {
+        setValuePreferredMajor(value);
+    };
+
+    // Research Preferred Year of Study Data
+    const [valuePreferredYear, setValuePreferredYear] = React.useState('');
+
+    const handleChangePreferredYear = (event, value) => {
+        setValuePreferredYear(value);
+    };
+
+    // Research Required Skills Data
+    const [valueSkills, setValueSkills] = React.useState('');
+
+    const handleChangeSkills = (event, value) => {
+        setValueSkills(value);
+    };
+    
+    // Research Required Classes Data
+    const [valueClasses, setValueClasses] = React.useState('');
+
+    const handleChangeClasses = (event, value) => {
+        setValueClasses(value);
+    };
+
+    // Research Description Data
+    const [valueDescription, setValueDescription] = React.useState('');
+
+    const handleChangeDescription = (event) => {
+        setValueDescription(event.target.value);
+    };
+
+    // Job Description Data
     const [valueJob, setValueJob] = React.useState('');
 
     const handleChangeJob = (event) => {
         setValueJob(event.target.value);
     };
+
+
+    const sumbitHandler = () => {
+        researchData = {
+            name: valueName,
+            studyArea: valueStudyArea,
+            major: valuePreferredMajor,
+            yearStudy: valuePreferredYear,
+            skills: valueSkills,
+            classes: valueClasses,
+            researchDescription: valueDescription,
+            jobDescription: valueJob
+        }
+    }
 
 
     return (    
@@ -153,16 +216,18 @@ function Post(props) {
                                         id="outlined-required"
                                         label="Research Name"
                                         style ={{width: '100%'}}
+                                        value={valueName}
+                                        onChange={handleChangeName}
                                     />
                                 </Grid>
                                 <Grid item xs={2.6} style={{textAlign:"left", padding: 0, marginBottom: "20px", marginRight: "40px"}}>
-                                    <SearchBar options={Areas} label="Research Study Area" onChange={handleChangeName}/>
+                                    <SearchBar options={Areas} label="Research Study Area" onChange={handleChangeStudyArea}/>
                                 </Grid>
                                 <Grid item xs={2.6} style={{textAlign:"left", padding: 0, marginBottom: "20px", marginRight: "40px"}}>
-                                    <SearchBar options={Majors} label="Preferred Major"/>
+                                    <SearchBar options={Majors} label="Preferred Major" onChange={handleChangePreferredMajor}/>
                                 </Grid>
                                 <Grid item xs={2.6} style={{textAlign:"left", padding: 0, marginBottom: "20px"}}>
-                                    <SearchBar options={Years} label="Preferred Year of Study"/>
+                                    <SearchBar options={Years} label="Preferred Year of Study" onChange={handleChangePreferredYear}/>
                                 </Grid>
                                 <Grid item xs={5.6} style={{textAlign:"left", padding: 0, marginBottom: "20px", marginRight: "40px"}}>
                                     <Autocomplete
@@ -170,6 +235,7 @@ function Post(props) {
                                         id="tags-filled"
                                         options={Skills.map((option) => option.title)}
                                         freeSolo
+                                        onChange={handleChangeSkills}
                                         renderTags={(value, getTagProps) =>
                                         value.map((option, index) => (
                                             <Chip variant="outlined" label={option} {...getTagProps({ index })} />
@@ -191,6 +257,7 @@ function Post(props) {
                                         id="tags-filled"
                                         options={Classes.map((option) => option.title)}
                                         freeSolo
+                                        onChange={handleChangeClasses}
                                         renderTags={(value, getTagProps) =>
                                         value.map((option, index) => (
                                             <Chip variant="outlined" label={option} {...getTagProps({ index })} />
@@ -212,8 +279,8 @@ function Post(props) {
                                     id="outlined-multiline-flexible"
                                     label="Project Description"
                                     multiline
-                                    value={valueResearch}
-                                    onChange={handleChangeResearch}
+                                    value={valueDescription}
+                                    onChange={handleChangeDescription}
                                     style ={{width: '100%'}}
                                     />
                                 </Grid>
@@ -230,7 +297,7 @@ function Post(props) {
                                 </Grid>
 
                                 <Grid item xs={11.6} style={{padding: 0, marginBottom: "20px"}}>
-                                    <Button variant="contained" size="large" style={{backgroundColor:"#FE5B00"}}>
+                                    <Button variant="contained" size="large" style={{backgroundColor:"#FE5B00"}} onClick={sumbitHandler}>
                                         Post
                                     </Button>
                                 </Grid>

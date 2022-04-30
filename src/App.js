@@ -22,7 +22,7 @@ const user = {
   skills: ["Communication",
            "Leadership"],
   major: 'Software Engineering',
-  courses: ["CIIC 3011",
+  classes: ["CIIC 3011",
             "CIIC 3015",
             "CIIC 3075",
             "CIIC 3081",
@@ -42,7 +42,7 @@ function App() {
           <Route path="/SignUp" element={<SignUp/>}/>
           <Route path="/LogIn" element={<LogIn/>}/>
           <Route path="/EditProfile" element={<EditProfile isLogged={user.isLogged} userType={user.type} 
-          preferredEmail={user.preferredEmail} skills={user.skills} courses={user.courses} major={user.major}
+          preferredEmail={user.preferredEmail} skills={user.skills} classes={user.classes} major={user.major}
           yearStudy={user.yearStudy}/>}/>
       </Routes>
     </BrowserRouter>

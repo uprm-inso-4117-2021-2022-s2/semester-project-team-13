@@ -12,33 +12,32 @@ import NotFound from '../Images/notFound404.svg'
 import FileUploadIcon from '@mui/icons-material/FileUpload';
 
 const Majors = [
-
-  { label: 'Chemical Engineering', code: "INQU" },
-  { label: 'Civil Engineering', code: "INCI" },
-  { label: 'Computer Engineering', code: "ICOM" },
-  { label: 'Computer Sciences and Engineering', code: "CIIC" },
-  { label: 'Electrical Engineering', code: "INEL" },
-  { label: 'Industrial Engineering', code: "ININ" },
-  { label: 'Mechanical Engineering', code: "INME" },
-  { label: 'Software Engineering', code: "INSO" },
-  { label: 'No preference', code: "N/P" }
+    'Chemical Engineering',
+    'Civil Engineering',
+    'Computer Engineering',
+    'Computer Sciences and Engineering',
+    'Electrical Engineering',
+    'Industrial Engineering',
+    'Mechanical Engineering',
+    'Software Engineering',
+    'No preference',
 ];
 
 const Years = [
-  { label: '1st', number: 1 },
-  { label: '2nd', number: 2 },
-  { label: '3rd', number: 3 },
-  { label: '4th', number: 4 },
-  { label: '5th or more', number: 5 },
-  { label: 'No preference', code: "N/P" }
+  '1st',
+  '2nd',
+  '3rd',
+  '4th',
+  '5th or more',
+  'No preference',
 ];
 
 const Skills = [
-{title: "Active listening"},
-{title: "Communication"},
-{title: "Leadership"},
-{title: "Management skills"},
-{title: "Problem-solving"}
+    {title: "Active listening"},
+    {title: "Communication"},
+    {title: "Leadership"},
+    {title: "Management skills"},
+    {title: "Problem-solving"}
 ]
 
 const Classes = [
@@ -86,8 +85,66 @@ const Classes = [
 
 ]
 
+// Data submitted by the user
+let userData = {
+    email: null,
+    major: null,
+    yearStudy: null,
+    skills: null,
+    classes: null
+}
+
 function EditProfile(props) {
+
+    // User Resume Data
     const [uploadFile, setUploadFile] = React.useState();
+    
+    // User Preferred Email Data
+    const [valueEmail, setValueEmail] = React.useState(props.preferredEmail);
+
+    const handleChangeEmail = (event) => {
+        setValueEmail(event.target.value);
+    };
+
+    // User Major Data
+    const [valueMajor, setValueMajor] = React.useState(props.major);
+
+    const handleChangeMajor = (event, value) => {
+        setValueMajor(value);
+    };
+
+    // User Year of Study Data
+    const [valueYear, setValueYear] = React.useState(props.yearStudy);
+
+    const handleChangeYear = (event, value) => {
+        setValueYear(value);
+    };
+
+    // User Skills Data
+    const [valueSkills, setValueSkills] = React.useState(props.skills);
+
+    const handleChangeSkills = (event, value) => {
+        setValueSkills(value);
+    };
+
+    // User Classes Data
+    const [valueClasses, setValueClasses] = React.useState(props.classes);
+
+    const handleChangeClasses = (event, value) => {
+        setValueClasses(value);
+    };
+
+    const sumbitHandler = () => {
+        userData = {
+            email: valueEmail,
+            major: valueMajor,
+            yearStudy: valueYear,
+            skills: valueSkills,
+            classes: valueClasses
+        }
+
+        console.log(userData)
+    }
 
     return (    
         <div className="EditProfile">
@@ -140,13 +197,14 @@ function EditProfile(props) {
                                     label="Preferred Email"
                                     style ={{width: '100%'}}
                                     defaultValue={props.preferredEmail}
+                                    onChange={handleChangeEmail}
                                 />
                             </Grid>
                             <Grid item xs={3.6} style={{textAlign:"left", padding: 0, marginBottom: "20px", marginRight: "40px"}}>
-                                <SearchBar options={Majors} label="Your Major" defaultValue={props.major}/>
+                                <SearchBar options={Majors} label="Your Major" defaultValue={props.major} onChange={handleChangeMajor}/>
                             </Grid>
                             <Grid item xs={3.6} style={{textAlign:"left", padding: 0, marginBottom: "20px"}}>
-                                <SearchBar options={Years} label="Your Year of Study" defaultValue={props.yearStudy}/>
+                                <SearchBar options={Years} label="Your Year of Study" defaultValue={props.yearStudy} onChange={handleChangeYear}/>
                             </Grid>
                             <Grid item xs={5.6} style={{textAlign:"left", padding: 0, marginBottom: "20px", marginRight: "40px"}}>
                                 <Autocomplete
@@ -154,6 +212,7 @@ function EditProfile(props) {
                                     id="tags-filled"
                                     options={Skills.map((option) => option.title)}
                                     freeSolo
+                                    onChange={handleChangeSkills}
                                     defaultValue={props.skills}
                                     renderTags={(value, getTagProps) =>
                                     value.map((option, index) => (
@@ -176,7 +235,8 @@ function EditProfile(props) {
                                     id="tags-filled"
                                     options={Classes.map((option) => option.title)}
                                     freeSolo
-                                    defaultValue={props.courses}
+                                    onChange={handleChangeClasses}
+                                    defaultValue={props.classes}
                                     renderTags={(value, getTagProps) =>
                                     value.map((option, index) => (
                                         <Chip variant="outlined" label={option} {...getTagProps({ index })} />
@@ -186,14 +246,14 @@ function EditProfile(props) {
                                     <TextField
                                         {...params}
                                         variant="outlined"
-                                        label="Courses you have taken"
+                                        label="Classes you have taken"
                                     />
                                     )}
                                 />
                             </Grid>
 
                             <Grid item xs={11.6} style={{padding: 0, marginBottom: "20px"}}>
-                                <Button type="submit" variant="contained" size="large" style={{backgroundColor:"#FE5B00"}}>
+                                <Button type="submit" variant="contained" size="large" style={{backgroundColor:"#FE5B00"}} onClick={sumbitHandler}>
                                     Edit Profile
                                 </Button>
                             </Grid>
