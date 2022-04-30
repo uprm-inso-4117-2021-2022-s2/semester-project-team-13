@@ -38,7 +38,7 @@ const RNECTNavbar = (props) => {
             </Button>
           ))}
 
-          {props.userType === "P" ? 
+          {props.userType === "P"  ? 
             <Button
               variant="Text"
               key="Post"
@@ -57,9 +57,10 @@ const RNECTNavbar = (props) => {
               Projects
             </Button>
           }
+          
           {props.isLogged ? 
            <Stack sx={{marginLeft:"auto"}} spacing={2} direction="row">
-            <AccountMenu name={props.userName}/>
+            <AccountMenu name={props.userName} userType={props.userType}/>
           </Stack>
           :
           <Stack sx={{marginLeft:"auto"}} spacing={2} direction="row">

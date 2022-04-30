@@ -311,7 +311,7 @@ function Post(props) {
                                     This is a warning alert — <strong>Please log in to your account in order to create a post.</strong>
                                 </Alert>
                                 <br/>
-                                <Button variant="contained" size="large" style={{backgroundColor:"#FE5B00", marginTop:"15px"}}>Log in</Button>
+                                <Button variant="contained" size="large" href="/LogIn" style={{backgroundColor:"#FE5B00", marginTop:"15px"}}>Log in</Button>
                             </div>
                         }
                     </Container>

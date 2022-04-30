@@ -70,12 +70,16 @@ export default function AccountMenu(props) {
         transformOrigin={{ horizontal: 'right', vertical: 'top' }}
         anchorOrigin={{ horizontal: 'right', vertical: 'bottom' }}
       >
-        <MenuItem component={Link} href="/EditProfile">
-          <ListItemIcon>
-            <EditIcon fontSize="small" />
-          </ListItemIcon>
-          Edit Profile
-        </MenuItem>
+        {props.userType === "S" ?
+          <MenuItem component={Link} href="/EditProfile">
+            <ListItemIcon>
+              <EditIcon fontSize="small" />
+            </ListItemIcon>
+            Edit Profile
+          </MenuItem>
+          :
+          <div></div>
+        }
 
         <MenuItem>
           <ListItemIcon>
