@@ -7,6 +7,7 @@ export default function SearchBar(props) {
     <Autocomplete
       disablePortal
       id="combo-box-demo"
+      defaultValue={props.defaultValue}
       options={props.options}
       renderInput={(params) => <TextField required {...params} label={props.label}/>}
       onChange={props.onChange}

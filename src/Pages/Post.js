@@ -97,6 +97,12 @@ const Classes = [
 
 function Post(props) {
 
+    const [valueName, setValueName] = React.useState('');
+
+    const handleChangeName = (event) => {
+        setValueName(event.target.value);
+    };
+
     const [valueResearch, setValueResearch] = React.useState('');
 
     const handleChangeResearch = (event) => {
@@ -108,6 +114,7 @@ function Post(props) {
     const handleChangeJob = (event) => {
         setValueJob(event.target.value);
     };
+
 
     return (    
         <div className="Post">
@@ -149,7 +156,7 @@ function Post(props) {
                                     />
                                 </Grid>
                                 <Grid item xs={2.6} style={{textAlign:"left", padding: 0, marginBottom: "20px", marginRight: "40px"}}>
-                                    <SearchBar options={Areas} label="Research Study Area" onChange={(event, value) => console.log(value)}/>
+                                    <SearchBar options={Areas} label="Research Study Area" onChange={handleChangeName}/>
                                 </Grid>
                                 <Grid item xs={2.6} style={{textAlign:"left", padding: 0, marginBottom: "20px", marginRight: "40px"}}>
                                     <SearchBar options={Majors} label="Preferred Major"/>

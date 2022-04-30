@@ -16,7 +16,6 @@ import Radio from '@mui/material/Radio';
 import RadioGroup from '@mui/material/RadioGroup';
 import FormControl from '@mui/material/FormControl';
 import FormLabel from '@mui/material/FormLabel';
-import FormHelperText from '@mui/material/FormHelperText';
 import Alert from '@mui/material/Alert';
 import InputAdornment from '@mui/material/InputAdornment';
 import IconButton from '@mui/material/IconButton';
@@ -41,10 +40,19 @@ const MAX_LENGTH = 35;
 
 export default function SignUp() {
 
-  var selected = "Student";
+  const [studentForm, setStudentForm] = React.useState('/EditProfile');
+  var selected = "";
 
   const handleSelected = (event) => {
     selected = event.target.value
+    console.log(selected)
+
+    if(selected === "Student"){
+      setStudentForm('/EditProfile')
+    }
+    else{
+      setStudentForm('/')
+    }
   };
 
   const [firstN, setFirstN] = React.useState("");
@@ -63,7 +71,6 @@ export default function SignUp() {
       }
   };
 
-  
   const [lastN, setLastN] = React.useState("");
   const [errorMessageLN, setErrorMessageLN] = React.useState("");
 
@@ -81,7 +88,7 @@ export default function SignUp() {
   };
 
   const [email, setEmail] = React.useState("");
-  const [emailError, setEmailError] = React.useState('')
+  const [emailError, setEmailError] = React.useState('');
 
   const validateEmail = (event) => {
     setEmail(event.target.value)
@@ -94,7 +101,7 @@ export default function SignUp() {
   }
 
   const [password, setPassword] = React.useState("");
-  const [passwordError, setPasswordError] = React.useState(false)
+  const [passwordError, setPasswordError] = React.useState(false);
   
   const validatePassword = (event) => {
 
@@ -117,9 +124,11 @@ export default function SignUp() {
   const handleSubmit = (event) => {
     event.preventDefault();
     const data = new FormData(event.currentTarget);
+
     console.log({
       email: data.get('email'),
       password: data.get('password'),
+      accountType: selected
     });
   };
 
@@ -193,6 +202,7 @@ export default function SignUp() {
                         row
                         aria-labelledby="demo-row-radio-buttons-group-label"
                         name="row-radio-buttons-group"
+                        id="accountType"
                         onChange={handleSelected}
                     >
                         <FormControlLabel value="Student" control={<Radio style={{color: "#FE5B00"}}/>} label="Student" />
@@ -252,6 +262,7 @@ export default function SignUp() {
               variant="contained"
               sx={{ mt: 3, mb: 2 }}
               style={{backgroundColor:"#22BCEA"}}
+              href={studentForm}
             >
               Sign Up
             </Button>

@@ -11,12 +11,24 @@ import Projects from './Pages/Projects'
 import Post from './Pages/Post'
 import SignUp from './Pages/SignUp'
 import LogIn from './Pages/LogIn'
+import EditProfile from './Pages/EditProfile'
 import RNECTNavbar from './Components/RNECTNavbar';
 
 const user = {
   name: "Pepito Pérez",
-  isLogged: false,
-  type: "P"
+  isLogged: true,
+  type: "S",
+  preferredEmail: "user.name@gmail.com",
+  skills: ["Communication",
+           "Leadership"],
+  major: 'Software Engineering',
+  courses: ["CIIC 3011",
+            "CIIC 3015",
+            "CIIC 3075",
+            "CIIC 3081",
+            "CIIC 4010"],
+  yearStudy: '4th'
+  
 }
 
 function App() {
@@ -29,6 +41,9 @@ function App() {
           <Route path="/Post" element={<Post isLogged={user.isLogged} userType={user.type}/>}/>
           <Route path="/SignUp" element={<SignUp/>}/>
           <Route path="/LogIn" element={<LogIn/>}/>
+          <Route path="/EditProfile" element={<EditProfile isLogged={user.isLogged} userType={user.type} 
+          preferredEmail={user.preferredEmail} skills={user.skills} courses={user.courses} major={user.major}
+          yearStudy={user.yearStudy}/>}/>
       </Routes>
     </BrowserRouter>
   );
