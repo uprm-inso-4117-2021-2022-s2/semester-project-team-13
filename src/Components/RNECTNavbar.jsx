@@ -57,7 +57,18 @@ const RNECTNavbar = (props) => {
               Projects
             </Button>
           }
-          
+          {props.userType === "P"  ? 
+            <Button
+            variant="Text"
+            key="Applications"
+            href="/Applications"
+            sx={{ my: 2, color: 'black', display: 'block', marginLeft: "10px" }}
+            >
+              Applications
+            </Button>
+            :
+            <br/>
+          }
           {props.isLogged ? 
            <Stack sx={{marginLeft:"auto"}} spacing={2} direction="row">
             <AccountMenu name={props.userName} userType={props.userType}/>

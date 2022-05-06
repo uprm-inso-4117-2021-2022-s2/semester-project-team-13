@@ -1,11 +1,9 @@
 import * as React from 'react';
-import Card from '@mui/material/Card';
-import CardActions from '@mui/material/CardActions';
-import CardContent from '@mui/material/CardContent';
-import CardMedia from '@mui/material/CardMedia';
 import Button from '@mui/material/Button';
 import Typography from '@mui/material/Typography';
-import ResearchInfo from './ResearchInfo';
+import ApplicantInfo from './ApplicantInfo';
+import Grid from '@mui/material/Grid';
+
 
 const style = {
     fontFamily: "Montserrat", 
@@ -31,33 +29,48 @@ export default function ApplicationCard(props) {
     const handleClose = () => setOpen(false);
   
     return (
-        <Card sx={{ width: "100%", height: "100%" }} style={{textAlign: "center"}}>
-            <CardContent>
-                <Typography gutterBottom variant="h5" component="div" style={style}>
+
+        <Grid container spacing={3}>
+            <Grid item xs style={{textAlign:"left"}}>
+                Applicants Name
+                <br />
+                <b>
                 {props.name}
-                </Typography>
-                <Typography variant="body2" color="text.secondary" style={styleDescription}>
-                {props.briefDescription}
-                </Typography>
-            </CardContent>
-            <CardActions style={{justifyContent: 'center'}}>
+                </b>
+            </Grid>
+            <Grid item xs style={{textAlign:"left"}}>
+                Research
+                <br />
+                <b>
+                {props.research}
+                </b>
+            </Grid>
+            <Grid item xs style={{textAlign:"left"}}>
+                Requested On
+                <br />
+                <b>
+                {props.date}
+                </b>
+            </Grid>
+            <Grid item xs>
                 <Button variant="contained" style={{backgroundColor:"#FE5B00", marginBottom: "20px"}} onClick={handleOpen}>
-                    Learn More
+                View Profile
                 </Button>
-                <ResearchInfo 
+                <ApplicantInfo 
                     open={open} 
                     handleClose={handleClose} 
                     name={props.name} 
                     id={props.id}
-                    description={props.description} 
-                    studyArea={props.studyArea} 
-                    pMajor={props.pMajor}
+                    email={props.email}
+                    resume={props.resume}
+                    major={props.major}
                     yearStudy={props.yearStudy}
                     classes={props.classes}
-                    jobDescription={props.jobDescription}
-                    requiredSkills={props.requiredSkills}
+                    skills={props.skills}
                 />
-            </CardActions>
-        </Card>
+            </Grid>
+            
+        </Grid>
+        
     );
 }

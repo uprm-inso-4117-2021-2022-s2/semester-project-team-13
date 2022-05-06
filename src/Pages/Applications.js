@@ -9,115 +9,78 @@ import Grid from '@mui/material/Grid';
 import logoUprm from '../Images/logoUprm.png'
 import SearchIcon from '@mui/icons-material/Search';
 import NotFound from '../Images/notFound404.svg'
+import Divider from '@mui/material/Divider';
 
 //https://resources.workable.com/job-descriptions/
-const Adversarial = {
-  name: "​Adversarial Learning Networks",
-  id: "Adversarial",
-  briefDescription: "How can we downgrade the performance of the most popular and effective face recognition models and algorithms?",
-  imgPath: logoUprm,
-  studyArea:"Computer Science",
-  description: 
-  `
-  We propose to develop an adversarial learning framework targeted to face recognition models. 
-  Using the most popular and effective FR models and algorithms, the data with which they operate 
-  and the existing adversarial attacks to downgrade the performance of such models. There are many 
-  adversarial attacks targeted to computer vision models, which we can use as inspiration for 
-  creating attacks for FR tasks. This adversarial attacks are useful to identify the vulnerabilities 
-  of the models before they are deployed.
-  `,
-  pMajor: "INSO, CIIC, ICOM",
-  yearStudy: "2nd or more",
-  classes: "Introduction to software, Programming Languages, Database",
-  jobDescription: 
-  `
-  We are looking for a professional Embedded Software Engineer to execute complete embedded software 
-  development lifecycle. The goal is to create scalable and optimized software systems.
-  `,
-  requiredSkills: ["Active listening", "Communication", "Leadership", "Management skills", "Problem-solving"]
+const Pepito = {
+  name: "​Pepito Pérez",
+  id: 1,
+  email:"pepito.perez@gmail.com",
+  resume:`pepitoResume.pdf`,
+  date:"March 12, 2022",
+  research: "Adversarial Learning Networks",
+  major: "CIIC",
+  yearStudy: "3rd",
+  classes:  ["CIIC 3011",
+             "CIIC 3015",
+             "CIIC 3075",
+             "CIIC 3081",
+             "CIIC 4010"],
+  skills: ["Active listening", "Communication", "Leadership", "Management skills", "Problem-solving"]
 };
 
-const Embedded = {
-  name: "Embedded System",
-  id: "Embedded",
-  briefDescription: "We focus on sustaining the power grid’s data, stored in a sensor network, in response to a natural disturbance.",
-  imgPath: logoUprm,
-  studyArea:"Computer Science",
-  description: 
-  `
-  Some of the biggest problems power grids have when facing natural disasters are recovery time and
-  the collection of information about the system. This project aims to solve these issues by creating 
-  a decentralized solution using a viable communication protocol that will allow us to keep track of 
-  the power grids data and optimize its recovery time in the case of a disturbance. The methodology 
-  used to achieve the project’s goal is revision of literature about the operation of power grids and 
-  how it manages its information, then choosing a viable decentralized communication protocol to use 
-  in a prototype that will be incorporated with a decision-making algorithm. Future work is listed 
-  based on the current progress of the project. 
-  `,
-  pMajor: "INSO, CIIC, ICOM",
-  yearStudy: "2nd or more",
-  classes: "Introduction to software, Programming Languages, Database",
-  jobDescription: 
-  `
-  We are looking for a professional Embedded Software Engineer to execute complete embedded software 
-  development lifecycle. The goal is to create scalable and optimized software systems.
-  `,
-  requiredSkills: ["Active listening", "Communication", "Leadership", "Management skills", "Problem-solving"]
+const Juana = {
+  name: "Juana Cubana",
+  id: 2,
+  email:"juana.cubana@gmail.com",
+  resume:`juanaResume.pdf`,
+  date:"March 10, 2022",
+  research: "Cybersecurity",
+  major: "ICOM",
+  yearStudy: "4th",
+  classes:  ["CIIC 3011",
+             "CIIC 3015",
+             "CIIC 3075",
+             "CIIC 3081",
+             "CIIC 4010"],
+  skills: ["Active listening", "Communication", "Leadership", "Management skills", "Problem-solving"]
 };
 
-const PandaHat = {
-  name: "​Cybersecurity Training & Network Anomaly Detection",
-  id: "PandaHat",
-  briefDescription: "Can vulnerabilities be discovered and protect against before they are made public with Machine learning and dynamic analysis?",
-  imgPath: logoUprm,
-  studyArea:"​Cybersecurity",
-  description: 
-  `
-  Over the years, network vulnerabilities have been increasing exponentially. Moreover, with the 
-  ]emergence of new technologies come new attack vectors for malicious actors to exploit. For this 
-  reason, systems require measures to maintain the pillars of Cybersecurity: confidentiality, 
-  integrity, and availability. With this in mind, this group will be dedicated to using machine 
-  learning to automate the detection of anomalies in computer networks. Students will acquire the 
-  basic knowledge of Cybersecurity concepts and the technical skills needed to fulfill all the 
-  security world's desired tasks.
-  `,
-  pMajor: "INSO, CIIC, ICOM",
-  yearStudy: "2nd or more",
-  classes: "Introduction to software, Programming Languages, Database",
-  jobDescription: 
-  `
-  We are looking for a professional Embedded Software Engineer to execute complete embedded software 
-  development lifecycle. The goal is to create scalable and optimized software systems.
-  `,
-  requiredSkills: ["Active listening", "Communication", "Leadership", "Management skills", "Problem-solving"]
+const Eliezer = {
+  name: "​Eliezer Pérez Irizarry",
+  id: 3,
+  email:"eliezer.perez@gmail.com",
+  resume:`eliezerResume.pdf`,
+  date:"March 4, 2022",
+  research: "Embedded System",
+  major: "INME",
+  yearStudy: "2nd",
+  classes:  ["INME 3011",
+             "QUIM 3015",
+             "CIIC 3075",
+             "CIIC 3081",
+             "CIIC 4010"],
+  skills: ["Active listening", "Communication", "Leadership", "Management skills", "Problem-solving"]
 };
 
-const NLP = {
-  name: "​Hybrid-Architecture Symbolic Parser and Neural Lexicon",
-  id: "NLP",
-  briefDescription: "How can a computer identify all lexical and structural ambiguities within a given sentence?",
-  imgPath: logoUprm,
-  studyArea:"Computer Science",
-  description: 
-  `
-  While the syntactic structures of Language are hierarchical, their externalizations are linear 
-  by design. This can lead to ambiguity, which is inefficient for communication. We will develop 
-  a syntactic parser capable of recognizing all potential syntactic and lexical ambiguities within 
-  a given sentence. This parser will be useful in industry, education, and as a basis for further 
-  development of technologies in human language comprehension.
-  `,
-  pMajor: "INSO, CIIC, ICOM",
-  yearStudy: "2nd or more",
-  classes: "Introduction to software, Programming Languages, Database",
-  jobDescription: 
-  `
-  We are looking for a professional Embedded Software Engineer to execute complete embedded software 
-  development lifecycle. The goal is to create scalable and optimized software systems.
-  `,
-  requiredSkills: ["Active listening", "Communication", "Leadership", "Management skills", "Problem-solving"]
+const Emily = {
+  name: "Emily Cardona Galicia",
+  id: 4,
+  email:"emily.cardona@gmail.com",
+  resume:`emilyResume.pdf`,
+  date:"March 1, 2022",
+  research: "Embedded System",
+  major: "INSO",
+  yearStudy: "2nd",
+  classes:  ["CIIC 3011",
+             "CIIC 3015",
+             "CIIC 3075",
+             "CIIC 3081",
+             "CIIC 4010"],
+  skills: ["Active listening", "Communication", "Leadership", "Management skills", "Problem-solving"]
 };
 
-const research = [Adversarial, Embedded, PandaHat, NLP]
+const applications = [Pepito, Juana, Eliezer, Emily]
 
 function Applications(props) {
   var tempKeyNum = 0
@@ -135,9 +98,7 @@ function Applications(props) {
               Applications
               </Typography>
               <Typography variant="subtitle1" gutterBottom component="div" style={{fontFamily: "Montserrat", color: "#737373"}}>
-              We liked to present some of the research options that 
-              <br/>
-              students have with our platform.
+              These are all your pending requests
               </Typography>
             </Box>
 
@@ -145,31 +106,31 @@ function Applications(props) {
 
         <Container maxWidth="lg"> 
           <Typography variant="h4" gutterBottom component="div" style={{fontFamily: "Montserrat", fontWeight: "bolder", color: "#212121"}}>
-            Featured projects
+            Applications 
           </Typography>
 
           <Grid container alignItems="stretch" spacing={2} style={{marginBottom: "50px", marginTop: "25px", textAlign: "center"}}>
 
             {
-            research.map(res =>{
+            applications.map(app =>{
               tempKeyNum = tempKeyNum + 1
               return ( 
-                <Grid item key={tempKeyNum + res.id} xs={12}>
+                <Grid item key={tempKeyNum + app.id} xs={12}>
                     <ApplicationCard 
-                    imgPath={res.imgPath} 
-                    name={res.name} 
-                    id={res.id}
-                    briefDescription={res.briefDescription} 
-                    researchPage={res.researchPage} 
-                    description={res.description} 
-                    studyArea={res.studyArea}
-                    pMajor={res.pMajor}
-                    yearStudy={res.yearStudy}
-                    classes={res.classes}
-                    jobDescription={res.jobDescription}
-                    requiredSkills={res.requiredSkills}
+                    name={app.name} 
+                    id={app.id}
+                    email={app.email}
+                    resume={app.resume}
+                    research={app.research}
+                    date={app.date}
+                    major={app.major}
+                    yearStudy={app.yearStudy}
+                    classes={app.classes}
+                    skills={app.skills}
                     />
+                    <Divider/>
                   </Grid>  
+                  
                 )
             }
             )
