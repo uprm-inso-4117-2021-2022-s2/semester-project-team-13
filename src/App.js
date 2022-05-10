@@ -17,18 +17,19 @@ import RNECTNavbar from './Components/RNECTNavbar';
 import Footer from './Components/Footer'
 
 const user = {
-  name: "User Professor",
+  name: "Eliezer Pérez Irizarry",
   isLogged: true,
-  type: "P",
-  preferredEmail: "user.professor@gmail.com",  
+  type: "S",
+  preferredEmail: "eliezer.perez@gmail.com",  
   skills: ["Communication",
   "Leadership",
   "Problem-Solving"],
   major: 'Software Engineering',
-  classes: ["CIIC 3011",
-    "CIIC 4010",
-    "CIIC 4020",
-    "CIIC 4025"],
+  classes: ["INME 3011",
+  "QUIM 3015",
+  "CIIC 3075",
+  "CIIC 3081",
+  "CIIC 4010"],
   yearStudy: '4th' 
 }
 

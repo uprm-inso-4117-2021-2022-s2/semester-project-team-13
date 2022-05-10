@@ -16,7 +16,7 @@ const Adversarial = {
   id: "Adversarial",
   briefDescription: "How can we downgrade the performance of the most popular and effective face recognition models and algorithms?",
   imgPath: logoUprm,
-  studyArea:"Computer Science",
+  studyArea:"Machine Learning",
   description: 
   `
   We propose to develop an adversarial learning framework targeted to face recognition models. 
@@ -27,7 +27,7 @@ const Adversarial = {
   of the models before they are deployed.
   `,
   pMajor: "INSO",
-  yearStudy: "2nd or more",
+  yearStudy: "No Preference",
   classes: "CIIC 3011, CIIC 4010",
   jobDescription: 
   `

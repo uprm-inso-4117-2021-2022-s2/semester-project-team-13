@@ -5,6 +5,7 @@ import Typography from '@mui/material/Typography';
 import Button from '@mui/material/Button';
 import SearchBar from "../Components/SearchBar"
 import Grid from '@mui/material/Grid';
+import Snackbar from '@mui/material/Snackbar';
 import Alert from '@mui/material/Alert';
 import AlertTitle from '@mui/material/AlertTitle';
 import Chip from '@mui/material/Chip';
@@ -108,6 +109,16 @@ let researchData = {
 
 function Post(props) {
     
+    const [open, setOpen] = React.useState(false);
+  
+    const handleClose = (event, reason) => {
+      if (reason === 'clickaway') {
+        return;
+      }
+  
+      setOpen(false);
+    };
+
     // Research Name Data
     const [valueName, setValueName] = React.useState('');
 
@@ -166,6 +177,7 @@ function Post(props) {
 
 
     const sumbitHandler = () => {
+        setOpen(true);
         researchData = {
             name: valueName,
             studyArea: valueStudyArea,
@@ -175,7 +187,7 @@ function Post(props) {
             classes: valueClasses,
             researchDescription: valueDescription,
             jobDescription: valueJob
-        }
+        };
     }
 
 
@@ -300,6 +312,11 @@ function Post(props) {
                                     <Button variant="contained" size="large" style={{backgroundColor:"#FE5B00"}} onClick={sumbitHandler}>
                                         Post
                                     </Button>
+                                    <Snackbar sx={{ height: "100%" }} anchorOrigin={{ vertical: 'top', horizontal: 'center' }} open={open} autoHideDuration={4000} onClose={handleClose}>
+                                        <Alert onClose={handleClose} variant="filled" severity="success" sx={{ width: '100%', backgroundColor:"#4BB543", fontFamily: "Montserrat" }}>
+                                            Your research project has been successfully published!
+                                        </Alert>
+                                    </Snackbar>
                                 </Grid>
                             </Grid>
                             

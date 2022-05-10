@@ -5,6 +5,8 @@ import Modal from '@mui/material/Modal';
 import Button from '@mui/material/Button';
 import Divider from '@mui/material/Divider';
 import Grid from '@mui/material/Grid';
+import Snackbar from '@mui/material/Snackbar';
+import Alert from '@mui/material/Alert';
 import CheckIcon from '@mui/icons-material/Check';
 import ClearIcon from '@mui/icons-material/Clear';
 import FileDownloadIcon from '@mui/icons-material/FileDownload';
@@ -24,6 +26,20 @@ const style = {
 };
 
 export default function ApplicantInfo(props) {
+
+    const [open, setOpen] = React.useState(false);
+  
+    const handleClose = (event, reason) => {
+      if (reason === 'clickaway') {
+        return;
+      }
+  
+      setOpen(false);
+    };
+
+    const accept = () => {
+        setOpen(true);
+    }
 
     const onDownload = () => {
         const link = document.createElement("a");
@@ -128,9 +144,14 @@ export default function ApplicantInfo(props) {
         
                 
                 <div style={{textAlign: "center"}}>
-                    <Button variant="contained" size="large" style={{backgroundColor:"#22BCEA", marginRight:10}} endIcon={<CheckIcon />}>
+                    <Button variant="contained" size="large" style={{backgroundColor:"#22BCEA", marginRight:10}} endIcon={<CheckIcon />} onClick={accept}>
                         Accept
                     </Button>
+                    <Snackbar sx={{ height: "100%" }} anchorOrigin={{ vertical: 'top', horizontal: 'center' }} open={open} autoHideDuration={4000} onClose={handleClose}>
+                        <Alert onClose={handleClose} variant="filled" severity="success" sx={{ width: '100%', backgroundColor:"#4BB543", fontFamily: "Montserrat" }}>
+                        Your decision has been successfully submitted and shared!
+                        </Alert>
+                    </Snackbar>
                     <Button variant="contained" size="large" style={{backgroundColor:"#FE5B00", borderColor:"#FE5B00"}} endIcon={<ClearIcon />}>
                         Decline
                     </Button>

@@ -4,6 +4,8 @@ import Container from '@mui/material/Container';
 import Typography from '@mui/material/Typography';
 import Button from '@mui/material/Button';
 import SearchBar from "../Components/SearchBar"
+import Snackbar from '@mui/material/Snackbar';
+import Alert from '@mui/material/Alert';
 import Grid from '@mui/material/Grid';
 import Chip from '@mui/material/Chip';
 import Autocomplete from '@mui/material/Autocomplete';
@@ -96,6 +98,16 @@ let userData = {
 
 function EditProfile(props) {
 
+    const [open, setOpen] = React.useState(false);
+  
+    const handleClose = (event, reason) => {
+      if (reason === 'clickaway') {
+        return;
+      }
+  
+      setOpen(false);
+    };
+
     // User Resume Data
     const [uploadFile, setUploadFile] = React.useState();
     
@@ -135,6 +147,7 @@ function EditProfile(props) {
     };
 
     const sumbitHandler = () => {
+        setOpen(true);
         userData = {
             email: valueEmail,
             major: valueMajor,
@@ -142,8 +155,6 @@ function EditProfile(props) {
             skills: valueSkills,
             classes: valueClasses
         }
-
-        console.log(userData)
     }
 
     return (    
@@ -253,9 +264,14 @@ function EditProfile(props) {
                             </Grid>
 
                             <Grid item xs={11.6} style={{padding: 0, marginBottom: "20px"}}>
-                                <Button type="submit" variant="contained" size="large" style={{backgroundColor:"#FE5B00"}} onClick={sumbitHandler} href="/Projects">
+                                <Button type="submit" variant="contained" size="large" style={{backgroundColor:"#FE5B00"}} onClick={sumbitHandler}>
                                     Edit Profile
                                 </Button>
+                                <Snackbar sx={{ height: "100%" }} anchorOrigin={{ vertical: 'top', horizontal: 'center' }} open={open} autoHideDuration={4000} onClose={handleClose}>
+                                    <Alert onClose={handleClose} variant="filled" severity="success" sx={{ width: '100%', backgroundColor:"#4BB543", fontFamily: "Montserrat" }}>
+                                    Your profile has been updated successfully!
+                                    </Alert>
+                                </Snackbar>
                             </Grid>
                         </Grid>
 

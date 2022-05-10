@@ -3,7 +3,6 @@ import Banner from "../Components/Banner";
 import HomeCard from '../Components/HomeCard';
 import Container from '@mui/material/Container';
 import Grid from '@mui/material/Grid';
-import logoUprm from '../Images/logoUprm.png'
 import resume from '../Images/resume.svg'
 import options from '../Images/options.svg'
 import knowledge from '../Images/knowledge.svg'

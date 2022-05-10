@@ -14,7 +14,7 @@ const Pepito = {
   email:"pepito.perez@gmail.com",
   resume:`pepitoResume.pdf`,
   date:"March 12, 2022",
-  research: "Adversarial Learning Networks",
+  research: "Cybersecurity",
   major: "CIIC",
   yearStudy: "3rd",
   classes:  ["CIIC 3011",
@@ -47,16 +47,16 @@ const Eliezer = {
   id: 3,
   email:"eliezer.perez@gmail.com",
   resume:`eliezerResume.pdf`,
-  date:"March 4, 2022",
-  research: "Embedded System",
-  major: "INME",
-  yearStudy: "2nd",
+  date:"May 10, 2022",
+  research: "​Adversarial Learning Networks",
+  major: "INSO",
+  yearStudy: "4th",
   classes:  ["INME 3011",
              "QUIM 3015",
              "CIIC 3075",
              "CIIC 3081",
              "CIIC 4010"],
-  skills: ["Active listening", "Communication", "Leadership", "Management skills", "Problem-solving"]
+  skills: ["Communication", "Leadership", "Problem-solving"]
 };
 
 const Emily = {
@@ -76,7 +76,7 @@ const Emily = {
   skills: ["Active listening", "Communication", "Leadership", "Management skills", "Problem-solving"]
 };
 
-const applications = [Pepito, Juana, Eliezer, Emily]
+const applications = [Eliezer, Pepito, Juana, Emily]
 
 function Applications(props) {
   var tempKeyNum = 0
