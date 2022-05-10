@@ -30,7 +30,6 @@ const user = {
             "CIIC 3081",
             "CIIC 4010"],
   yearStudy: '4th'
-  
 }
 
 function App() {
@@ -39,6 +38,7 @@ function App() {
       <BrowserRouter>
       <RNECTNavbar isLogged={user.isLogged} userType={user.type} userName={user.name}/>
       <Routes>
+          <Route exact path="" element={<Home isLogged={user.isLogged} userType={user.type}/>} />
           <Route exact path="/Home" element={<Home isLogged={user.isLogged} userType={user.type}/>} />
           <Route path="/Projects" element={<Projects isLogged={user.isLogged} userType={user.type}/>}/>
           <Route path="/Applications" element={<Applications isLogged={user.isLogged} userType={user.type}/>}/>
