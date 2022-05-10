@@ -2,12 +2,8 @@ import React from "react";
 import Box from '@mui/material/Box';
 import Container from '@mui/material/Container';
 import Typography from '@mui/material/Typography';
-import Button from '@mui/material/Button';
 import ApplicationCard from "../Components/ApplicationCard";
-import SearchBar from "../Components/SearchBar"
 import Grid from '@mui/material/Grid';
-import logoUprm from '../Images/logoUprm.png'
-import SearchIcon from '@mui/icons-material/Search';
 import NotFound from '../Images/notFound404.svg'
 import Divider from '@mui/material/Divider';
 
@@ -87,6 +83,7 @@ function Applications(props) {
 
   return (
     <div className="Applications">
+      
       {props.userType === "P" ?
       <div>
         <Container maxWidth="lg" style={{padding: "10vh", paddingBottom: 0, textAlign: "center"}}>

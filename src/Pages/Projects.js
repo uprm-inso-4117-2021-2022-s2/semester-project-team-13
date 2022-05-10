@@ -26,15 +26,15 @@ const Adversarial = {
   creating attacks for FR tasks. This adversarial attacks are useful to identify the vulnerabilities 
   of the models before they are deployed.
   `,
-  pMajor: "INSO, CIIC, ICOM",
+  pMajor: "INSO",
   yearStudy: "2nd or more",
-  classes: "Introduction to software, Programming Languages, Database",
+  classes: "CIIC 3011, CIIC 4010",
   jobDescription: 
   `
   We are looking for a professional Embedded Software Engineer to execute complete embedded software 
   development lifecycle. The goal is to create scalable and optimized software systems.
   `,
-  requiredSkills: ["Active listening", "Communication", "Leadership", "Management skills", "Problem-solving"]
+  requiredSkills: ["Active listening", "Communication", "Leadership"]
 };
 
 const Embedded = {
@@ -145,10 +145,15 @@ const Areas = [
   { label: 'No preference', number: 5 }
 ];
 
-const research = [Adversarial, Embedded, PandaHat, NLP]
-
 function Projects(props) {
   var tempKeyNum = 0
+
+  const [research, setResearch] = React.useState([]);
+
+  const searchButton = () => {
+    setResearch([Adversarial, Embedded, PandaHat, NLP])
+  };
+
 
   return (
     <div className="Projects">
@@ -179,7 +184,7 @@ function Projects(props) {
                       <SearchBar options={Areas} label="Study Area" onChange={(event, value) => console.log(value)}/>
                     </Grid>
                     <Grid item xs={3} style={{padding: 0}}>
-                      <Button variant="contained" startIcon={<SearchIcon />} style={{backgroundColor:"#FE5B00"}}>Search</Button>
+                      <Button variant="contained" startIcon={<SearchIcon />} style={{backgroundColor:"#FE5B00"}} onClick={searchButton}>Search</Button>
                     </Grid>
                   </Grid>
               :
@@ -197,31 +202,36 @@ function Projects(props) {
           </Typography>
 
           <Grid container alignItems="stretch" spacing={2} style={{marginBottom: "50px", marginTop: "25px", textAlign: "center"}}>
+            {research.length > 0 ?
+               research.map(res =>{
+                tempKeyNum = tempKeyNum + 1
+                return ( 
+                  <Grid item key={tempKeyNum + res.id} xs={4}>
+                      <ResearchCard 
+                      imgPath={res.imgPath} 
+                      name={res.name} 
+                      id={res.id}
+                      briefDescription={res.briefDescription} 
+                      researchPage={res.researchPage} 
+                      description={res.description} 
+                      studyArea={res.studyArea}
+                      pMajor={res.pMajor}
+                      yearStudy={res.yearStudy}
+                      classes={res.classes}
+                      jobDescription={res.jobDescription}
+                      requiredSkills={res.requiredSkills}
+                      />
+                    </Grid>  
+                  )
+                }
+              )
+            :
+              <Typography variant="subtitle1" gutterBottom component="div" style={{fontFamily: "Montserrat", color: "#737373"}}>
+              Please fill in the fields above to be able to search.
+              </Typography>
+            }
+            
 
-            {
-            research.map(res =>{
-              tempKeyNum = tempKeyNum + 1
-              return ( 
-                <Grid item key={tempKeyNum + res.id} xs={4}>
-                    <ResearchCard 
-                    imgPath={res.imgPath} 
-                    name={res.name} 
-                    id={res.id}
-                    briefDescription={res.briefDescription} 
-                    researchPage={res.researchPage} 
-                    description={res.description} 
-                    studyArea={res.studyArea}
-                    pMajor={res.pMajor}
-                    yearStudy={res.yearStudy}
-                    classes={res.classes}
-                    jobDescription={res.jobDescription}
-                    requiredSkills={res.requiredSkills}
-                    />
-                  </Grid>  
-                )
-            }
-            )
-            }
           </Grid>
         </Container>
       </div>

@@ -31,33 +31,40 @@ const RNECTNavbar = (props) => {
             <Button
               variant="Text"
               key={page}
-              href={"/" + page}
+              href="/"
               sx={{ my: 2, color: 'black', display: 'block', marginLeft: "10px" }}
             >
               {page}
             </Button>
           ))}
+          { props.isLogged ?
+            <div>
+              {props.userType === "P"  ? 
+                <Button
+                  variant="Text"
+                  key="Post"
+                  href="/Post"
+                  sx={{ my: 2, color: 'black', display: 'block', marginLeft: "10px" }}
+                >
+                  Post
+                </Button>
+              :
+                <Button
+                variant="Text"
+                key="Projects"
+                href="/Projects"
+                sx={{ my: 2, color: 'black', display: 'block', marginLeft: "10px" }}
+                >
+                  Projects
+                </Button>
+              }
+            </div>
 
-          {props.userType === "P"  ? 
-            <Button
-              variant="Text"
-              key="Post"
-              href="/Post"
-              sx={{ my: 2, color: 'black', display: 'block', marginLeft: "10px" }}
-            >
-              Post
-            </Button>
-          :
-            <Button
-            variant="Text"
-            key="Projects"
-            href="/Projects"
-            sx={{ my: 2, color: 'black', display: 'block', marginLeft: "10px" }}
-            >
-              Projects
-            </Button>
+            :
+              <br/>
           }
-          {props.userType === "P"  ? 
+          
+          {props.userType === "P" && props.isLogged ? 
             <Button
             variant="Text"
             key="Applications"

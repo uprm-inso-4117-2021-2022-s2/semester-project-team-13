@@ -16,20 +16,19 @@ import EditProfile from './Pages/EditProfile'
 import RNECTNavbar from './Components/RNECTNavbar';
 
 const user = {
-  name: "Pepito Pérez",
+  name: "User Professor",
   isLogged: true,
   type: "P",
-  preferredEmail: "user.name@gmail.com",
+  preferredEmail: "user.professor@gmail.com",  
   skills: ["Communication",
-           "Leadership"],
+  "Leadership",
+  "Problem-Solving"],
   major: 'Software Engineering',
   classes: ["CIIC 3011",
-            "CIIC 3015",
-            "CIIC 3075",
-            "CIIC 3081",
-            "CIIC 4010"],
-  yearStudy: '4th'
-  
+    "CIIC 4010",
+    "CIIC 4020",
+    "CIIC 4025"],
+  yearStudy: '4th' 
 }
 
 function App() {
@@ -37,11 +36,11 @@ function App() {
     <BrowserRouter>
       <RNECTNavbar isLogged={user.isLogged} userType={user.type} userName={user.name}/>
       <Routes>
-          <Route exact path="/Home" element={<Home isLogged={user.isLogged} userType={user.type}/>} />
+          <Route exact path="/" element={<Home isLogged={user.isLogged} userType={user.type}/>} />
           <Route path="/Projects" element={<Projects isLogged={user.isLogged} userType={user.type}/>}/>
           <Route path="/Applications" element={<Applications isLogged={user.isLogged} userType={user.type}/>}/>
           <Route path="/Post" element={<Post isLogged={user.isLogged} userType={user.type}/>}/>
-          <Route path="/SignUp" element={<SignUp/>}/>
+          <Route path="/SignUp" element={<SignUp isLogged={user.isLogged}/>}/>
           <Route path="/LogIn" element={<LogIn/>}/>
           <Route path="/EditProfile" element={<EditProfile isLogged={user.isLogged} userType={user.type} 
           preferredEmail={user.preferredEmail} skills={user.skills} classes={user.classes} major={user.major}

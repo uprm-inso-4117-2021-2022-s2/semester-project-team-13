@@ -253,7 +253,7 @@ function EditProfile(props) {
                             </Grid>
 
                             <Grid item xs={11.6} style={{padding: 0, marginBottom: "20px"}}>
-                                <Button type="submit" variant="contained" size="large" style={{backgroundColor:"#FE5B00"}} onClick={sumbitHandler}>
+                                <Button type="submit" variant="contained" size="large" style={{backgroundColor:"#FE5B00"}} onClick={sumbitHandler} href="/Projects">
                                     Edit Profile
                                 </Button>
                             </Grid>

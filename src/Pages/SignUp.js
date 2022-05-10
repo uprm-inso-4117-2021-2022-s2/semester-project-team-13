@@ -51,7 +51,7 @@ export default function SignUp() {
       setStudentForm('/EditProfile')
     }
     else{
-      setStudentForm('/')
+      setStudentForm('/Post')
     }
   };
 
