@@ -10,17 +10,10 @@ export default function Banner(props) {
           sx={{
             bgcolor: 'background.paper',
             pt: 8,
-            pb: 6,
+            pb: 2,
           }}
         >
           <Container maxWidth="sm">
-            {/* <Typography
-              component="h1"
-              variant="h2"
-              align="center"
-              color="text.primary"
-              gutterBottom
-            > */}
             <Typography variant="h3" align="center" gutterBottom component="div" style={{fontFamily: "Montserrat", fontWeight: "bolder", color: "#252B42", margin:"0"}}>
               {props.title}
             </Typography>
@@ -36,7 +29,7 @@ export default function Banner(props) {
               spacing={2}
               justifyContent="center"
             >
-              <Button variant="contained" style={{backgroundColor:"#FE5B00", marginBottom: "20px"}}>{props.button}</Button>
+              <Button variant="contained" style={{backgroundColor:"#FE5B00", marginBottom: "20px"}} href={"/"+props.buttonLink}>{props.button}</Button>
             </Stack>
           </Container>
         </Box>

@@ -3,9 +3,7 @@ import Card from '@mui/material/Card';
 import CardActions from '@mui/material/CardActions';
 import CardContent from '@mui/material/CardContent';
 import CardMedia from '@mui/material/CardMedia';
-import Button from '@mui/material/Button';
 import Typography from '@mui/material/Typography';
-import ResearchInfo from './ResearchInfo';
 
 const style = {
   fontFamily: "Montserrat", 
@@ -32,7 +30,7 @@ export default function HomeCard(props) {
     <Card sx={{ maxWidth: 345, height: "100%" }} style={{textAlign: "center"}}>
             <CardMedia
                 component="img"
-                height="140"
+                height="350"
                 image={props.imgPath}
                 alt={props.name}
             />
@@ -44,11 +42,7 @@ export default function HomeCard(props) {
                 {props.briefDescription}
                 </Typography>
             </CardContent>
-            <CardActions style={{justifyContent: 'center'}}>
-                {/* <Button variant="contained" style={{backgroundColor:"#FE5B00", marginBottom: "20px"}}>
-                    Learn More
-                </Button> */}
-            </CardActions>
+            <CardActions style={{justifyContent: 'center'}}></CardActions>
         </Card>
     </div>
   );

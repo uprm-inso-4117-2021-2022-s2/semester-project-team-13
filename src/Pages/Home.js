@@ -1,40 +1,43 @@
 import React from "react";
 import Banner from "../Components/Banner";
 import HomeCard from '../Components/HomeCard';
-import ResearchCard from "../Components/ResearchCard";
-import Footer from '../Components/Footer';
 import Container from '@mui/material/Container';
 import Grid from '@mui/material/Grid';
-import books from '../Images/books.jpg';
 import logoUprm from '../Images/logoUprm.png'
-import Typography from '@mui/material/Typography';
-import { HomeRepairServiceRounded } from "@mui/icons-material";
+import resume from '../Images/resume.svg'
+import options from '../Images/options.svg'
+import knowledge from '../Images/knowledge.svg'
+import submit from '../Images/submit.svg'
+import qualified from '../Images/qualified.svg'
+import find from '../Images/find.svg'
 
 
 const professorHomeInfo = {
   title:"Welcome back",
   accountType: "Professor",
   description: "Go back to where you left off",
-  button: "Go to applications"
+  button: "Go to applications",
+  buttonLink: "Applications"
 }
 
 const professorHomeCards = [
-  {name:"Submit your research", key:"PC1", imgPath:logoUprm, briefDescription: "Advertise your research project on this page for students to find"},
-  {name:"Qualified applicants", key:"PC2", imgPath:logoUprm, briefDescription: "Receive hundreds of applications from students that meet the criteria"},
-  {name:"Find the perfect student", key:"PC3", imgPath:logoUprm, briefDescription: "Filter candidates until you find the candidates you feel are the most qualified"}
+  {name:"Submit your research", key:"PC1", imgPath:submit, briefDescription: "Advertise your research project on this page for students to find"},
+  {name:"Qualified applicants", key:"PC2", imgPath:qualified, briefDescription: "Receive hundreds of applications from students that meet the criteria"},
+  {name:"Find the perfect student", key:"PC3", imgPath:find, briefDescription: "Filter candidates until you find the candidates you feel are the most qualified"}
 ];
   
 const studentHomeInfo = {
   title: "Welcome back",
   accountType: "Student",
   description: "Go back to where you left off",
-  button: "Go to projects"
+  button: "Go to projects",
+  buttonLink: "Projects"
 }
 
 const studentHomeCards = [
-  {name: "Submit your resume", key:"SC1", imgPath:logoUprm, briefDescription:"Upload your resume so professors can take a look at it and possibly contact you"},
-  {name: "Search for options", key:"SC2", imgPath: logoUprm, briefDescription:"Search from a variety of research projects until you find one that suits your needs"},
-  {name: "Expand your knowledge", key:"SC3", imgPath: logoUprm, briefDescription: "Grow your experience and knowledge by actively collaborating with professors"}
+  {name: "Submit your resume", key:"SC1", imgPath: resume, briefDescription:"Upload your resume so professors can take a look at it and possibly contact you"},
+  {name: "Search for options", key:"SC2", imgPath: options, briefDescription:"Search from a variety of research projects until you find one that suits your needs"},
+  {name: "Expand your knowledge", key:"SC3", imgPath: knowledge, briefDescription: "Grow your experience and knowledge by actively collaborating with professors"}
 ]
 
 function Home(props) {
@@ -47,6 +50,7 @@ function Home(props) {
       <Banner 
       title={professorHomeInfo.title} 
       button={professorHomeInfo.button} 
+      buttonLink={professorHomeInfo.buttonLink}
       accountType={professorHomeInfo.accountType} 
       description={professorHomeInfo.description} 
       />
@@ -78,6 +82,7 @@ function Home(props) {
       <Banner 
       title={studentHomeInfo.title} 
       button={studentHomeInfo.button} 
+      buttonLink={studentHomeInfo.buttonLink}
       accountType={studentHomeInfo.accountType} 
       description={studentHomeInfo.description} 
       />
