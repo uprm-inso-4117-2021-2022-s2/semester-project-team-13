@@ -118,7 +118,6 @@ const NLP = {
 };
 
 const Majors = [
-
   { label: 'Chemical Engineering', code: "INQU" },
   { label: 'Civil Engineering', code: "INCI" },
   { label: 'Computer Engineering', code: "ICOM" },
@@ -197,7 +196,7 @@ function Projects(props) {
         </Container>
 
         <Container maxWidth="lg"> 
-          <Typography variant="h4" gutterBottom component="div" style={{fontFamily: "Montserrat", fontWeight: "bolder", color: "#212121"}}>
+          <Typography variant="h4" align="center" gutterBottom component="div" style={{fontFamily: "Montserrat", fontWeight: "bolder", color: "#212121"}}>
             Featured projects
           </Typography>
 

@@ -14,6 +14,7 @@ import SignUp from './Pages/SignUp'
 import LogIn from './Pages/LogIn'
 import EditProfile from './Pages/EditProfile'
 import RNECTNavbar from './Components/RNECTNavbar';
+import Footer from './Components/Footer'
 
 const user = {
   name: "User Professor",
@@ -33,10 +34,12 @@ const user = {
 
 function App() {
   return (
-    <BrowserRouter>
+    <div>
+      <BrowserRouter>
       <RNECTNavbar isLogged={user.isLogged} userType={user.type} userName={user.name}/>
       <Routes>
-          <Route exact path="/" element={<Home isLogged={user.isLogged} userType={user.type}/>} />
+          <Route exact path="" element={<Home isLogged={user.isLogged} userType={user.type}/>} />
+          <Route exact path="/Home" element={<Home isLogged={user.isLogged} userType={user.type}/>} />
           <Route path="/Projects" element={<Projects isLogged={user.isLogged} userType={user.type}/>}/>
           <Route path="/Applications" element={<Applications isLogged={user.isLogged} userType={user.type}/>}/>
           <Route path="/Post" element={<Post isLogged={user.isLogged} userType={user.type}/>}/>
@@ -47,6 +50,8 @@ function App() {
           yearStudy={user.yearStudy}/>}/>
       </Routes>
     </BrowserRouter>
+    <Footer />
+    </div>
   );
 }
 
